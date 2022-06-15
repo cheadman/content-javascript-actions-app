@@ -21,7 +21,7 @@ const main = async () => {
         const payload = JSON.stringify(github.context.payload, undefined, 2)
         console.log(`The event payload: ${payload}`)
         const example = await hitExample()
-        core.setOutput('example', JSON.stringify(example))
+        core.setOutput('example', encodeURI(example))
     } catch(error) {
         core.setFailed(error.message)
     }
