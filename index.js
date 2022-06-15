@@ -1,12 +1,12 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
-const axios = require('axios');
+const axios = require('axios')
 
 
 const hitExample = async () => {
     try{
         const res = await axios.get('https://example.com')
-        return JSON.stringify(res, undefined, 2);
+        return res.data
     }catch(error){
     console.error(error);
   }
