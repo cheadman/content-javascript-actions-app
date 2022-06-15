@@ -8,6 +8,8 @@ inputs:
 outputs:
   time:
     description: 'The time we greeted you'
+  example:
+    description: 'The response from example.com'
 runs:
   using: 'node12'
   main: 'index.js'
