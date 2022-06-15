@@ -6,7 +6,7 @@ const axios = require('axios');
 const hitExample = async () => {
     try{
         const res = await axios.get('https://example.com')
-        return JSON.stringify(res);
+        return JSON.stringify(res, undefined, 2);
     }catch(error){
     console.error(error);
   }
@@ -19,8 +19,8 @@ try {
     core.setOutput('time', time)
     const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`The event payload: ${payload}`)
-    const example = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The response was: ${hitExample()}`)
+    const example = hitExample()
+    console.log(`The response was: ${example}`)
 } catch(error) {
     core.setFailed(error.message)
 }
